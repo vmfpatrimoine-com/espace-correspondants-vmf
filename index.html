@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,86 +6,319 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Espace correspondants – VMF Éducation</title>
+
 <style>
-  :root { --black: #181818; --gold: #baa86a; --line: #e6e1d8; }
-  * { box-sizing: border-box; }
-  body { margin: 0; font-family: Arial, sans-serif; color: var(--black); background: #fff; line-height: 1.5; }
-  header { background: var(--black); color: #fff; text-align: center; padding: 54px 20px; border-bottom: 5px solid var(--gold); }
-  h1 { font: normal clamp(30px, 5vw, 46px) Georgia, serif; margin: 0 0 14px; }
-  header p { max-width: 620px; margin: auto; color: #e8e8e8; }
-  main { max-width: 880px; margin: 0 auto; padding: 44px 20px 60px; }
-  h2 { font: normal 28px Georgia, serif; margin: 0 0 24px; }
-  h2::after { content: ""; display: block; width: 48px; height: 3px; background: var(--gold); margin-top: 10px; }
-  .document { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-  .document h3 { font-size: 16px; font-weight: 600; margin: 0; }
-  .button { display: inline-block; color: var(--black); border: 1px solid var(--gold); border-radius: 4px; padding: 9px 15px; text-decoration: none; font-weight: 600; font-size: 13px; white-space: nowrap; }
-  .button:hover, .button:focus-visible { background: var(--gold); color: #111; }
-  footer { border-top: 1px solid var(--line); padding: 23px 20px; text-align: center; font-size: 13px; color: #555; }
-  @media (max-width: 600px) { .document { align-items: flex-start; flex-direction: column; gap: 10px; } header { padding: 40px 18px; } main { padding: 34px 18px; } }
+:root {
+  --black: #181818;
+  --gold: #baa86a;
+  --line: #e6e1d8;
+  --light: #faf9f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--black);
+  background: #fff;
+  line-height: 1.5;
+}
+
+header {
+  background: var(--black);
+  color: #fff;
+  text-align: center;
+  padding: 54px 20px;
+  border-bottom: 5px solid var(--gold);
+}
+
+h1 {
+  font: normal clamp(30px, 5vw, 46px) Georgia, serif;
+  margin: 0 0 14px;
+}
+
+header p {
+  max-width: 620px;
+  margin: auto;
+  color: #e8e8e8;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 45px 20px 65px;
+}
+
+.intro {
+  margin-bottom: 30px;
+  color: #666;
+}
+
+/* Les trois rubriques */
+
+.section {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.section summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 23px 25px;
+  background: var(--light);
+  cursor: pointer;
+  list-style: none;
+}
+
+.section summary::-webkit-details-marker {
+  display: none;
+}
+
+.section summary:hover {
+  background: #f3f0e9;
+}
+
+.section-title {
+  font: normal 25px Georgia, serif;
+  color: var(--black);
+}
+
+.section summary::after {
+  content: "+";
+  font-size: 28px;
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.section[open] summary::after {
+  content: "−";
+}
+
+.section[open] summary {
+  border-bottom: 2px solid var(--gold);
+}
+
+.section-content {
+  padding: 5px 25px 15px;
+}
+
+/* Documents */
+
+.document {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.document:last-child {
+  border-bottom: none;
+}
+
+.document h3 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.button {
+  display: inline-block;
+  color: var(--black);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 9px 17px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: background .2s;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--gold);
+  color: #111;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 25px 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 40px 18px;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .section summary {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 21px;
+  }
+
+  .section-content {
+    padding: 5px 18px 15px;
+  }
+
+  .document {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
   <h1>Espace correspondants</h1>
-  <p>Retrouvez les documents utiles pour relayer les actions de VMF Éducation dans votre département.</p>
+  <p>
+    Retrouvez les documents et ressources utiles
+    pour accompagner et relayer les actions
+    de VMF Éducation dans votre département.
+  </p>
 </header>
+
 <main>
-  <h2>Documents utiles</h2>
+
+<p class="intro">
+  Sélectionnez une rubrique pour consulter
+  les documents mis à votre disposition.
+</p>
+
+<!-- PARTIE 1 : CONCOURS -->
+
+<details class="section" open>
+  <summary>
+    <span class="section-title">
+      Concours 2026-2027
+    </span>
+  </summary>
+
+  <div class="section-content">
+
     <div class="document">
       <h3>Présentation du concours 2026-2027</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:b:/s/polecom/IQBGu3JLPFGKQrBmbBHIaXehARRCHiLgS1NZm8j7MZZ9fX4?e=fbFD5c&amp;download=1" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
-      <h3>Flyer</h3>
+      <h3>Flyer du concours</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:b:/s/polecom/IQD7Wk80z9UhTK2U-0NDdVXNARoGXv6eAYBEwZUDDef1Xdw?e=KdmcPF&amp;download=1" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
-      <h3>Guide pédagogique « Les petits photographes à l&#x27;œuvre »</h3>
+      <h3>Guide pédagogique « Les petits photographes à l'œuvre »</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:b:/s/polecom/IQAV5mXjON3IQJAixsDnvAw_AUYEChBh48j7X0_U6vp5nuk?e=HczlPp&amp;download=1" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
-      <h3>Règlement du concours « Les petits photographes à l&#x27;œuvre »</h3>
+      <h3>Règlement du concours « Les petits photographes à l'œuvre »</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:b:/s/polecom/IQDE5p1Cm_AdQatZcH632AG4AQDWOKjzCj-hhPp2DfznZ7w?e=i0QrzF&amp;download=1" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
       <h3>Classes inscrites au concours, octobre 2026</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:x:/s/polecom/IQD9cThE8j1URbsqwqTLd_R9Acx5GRih1iDABBEMKFQxJgk?e=a4wJbc&amp;download=1" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
+  </div>
+</details>
+
+<!-- PARTIE 2 : CONTACTS -->
+
+<details class="section">
+  <summary>
+    <span class="section-title">
+      Contacts Éducation 2026-2027
+    </span>
+  </summary>
+
+  <div class="section-content">
+
     <div class="document">
-      <h3>Liste de contact des académies</h3>
+      <h3>Liste de contacts des académies</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:x:/s/polecom/IQBrevOQl8gQSojFhis3K5YoAbelMpgIw8K5-hDUPaLYz-s?e=PfkUOH" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
-      <h3>Liste des correspondants éducation 2026-2027</h3>
-      <a class="button" href="https://1drv.ms/x/c/51203a8d6dc7d92e/IQB3ArODg-kQQ6LOIHi9HzfjAbKA0__8xb9kSIuBDVpMJPg?e=SpSYBe">Consulter</a>
+      <h3>Liste des correspondants Éducation 2026-2027</h3>
+      <a class="button" href="https://1drv.ms/x/c/51203a8d6dc7d92e/IQB3ArODg-kQQ6LOIHi9HzfjAbKA0__8xb9kSIuBDVpMJPg?e=SpSYBe" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
+  </div>
+</details>
+
+<!-- PARTIE 3 : ORGANISATION -->
+
+<details class="section">
+  <summary>
+    <span class="section-title">
+      Organisation
+    </span>
+  </summary>
+
+  <div class="section-content">
+
     <div class="document">
-      <h3>Présentation générique de l&#x27;opération Éducation</h3>
+      <h3>Présentation générique de l'opération Éducation</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:p:/s/polecom/IQDOqvkD7l5pRJhdaie3OfWoAepRr4gMnzNsFhnkibpywMM?e=YiPA9h" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
-      <h3>Flyer générique de l&#x27;opération Éducation</h3>
+      <h3>Flyer générique de l'opération Éducation</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:b:/s/polecom/IQAwmNQ2zWdmQowJFl6YnLD6Aa5H14RnVjq7IysaIYPTJig?e=cCXWSa&amp;download=1" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
-      <h3>Guide du correspondant éducation</h3>
+      <h3>Guide du correspondant Éducation</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:b:/s/polecom/IQB8Rg1sc8XYTLVazDcmYE1cAYxKF5RfZkZtT0dFH1-QV_g?e=PcIftZ" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
-      <h3>Réunion de rentrée des correspondants éducation</h3>
-      <a class="button" href="https://vmfpatrimoine.sharepoint.com/:f:/s/polecom/IgDxlyzZUnQFSJ5y3nvvuDGIARzoMuhu_MOD2EN8tZCFiKY?e=ktK98d">Consulter</a>
+      <h3>Réunion de rentrée des correspondants Éducation</h3>
+      <a class="button" href="https://vmfpatrimoine.sharepoint.com/:f:/s/polecom/IgDxlyzZUnQFSJ5y3nvvuDGIARzoMuhu_MOD2EN8tZCFiKY?e=ktK98d" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
-      <h3>Présentation de l&#x27;opération pédagogique « JEP Jeunes avec VMF » : délégation VMF de Loire-Atlantique</h3>
+      <h3>Présentation de l'opération pédagogique « JEP Jeunes avec VMF » – Délégation de Loire-Atlantique</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:p:/s/polecom/IQDBjq9jGHoiRqH9c3qYh2iCAfATLv8HP3w8zUpFez6NlvQ?e=l7rVQm&amp;download=1" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
     <div class="document">
-      <h3>Revue de presse éducation 2026</h3>
+      <h3>Revue de presse Éducation 2026</h3>
       <a class="button" href="https://vmfpatrimoine.sharepoint.com/:b:/s/polecom/IQDdw1UoJckgRoL2BPh0YdRxAWfpuoYX88_sFqRsGTamPDI?e=hmjcbr&amp;download=1" target="_blank" rel="noopener noreferrer">Consulter</a>
     </div>
+
+  </div>
+</details>
+
 </main>
+
 <footer>
-  Espace destiné aux correspondants Éducation. Merci de ne pas diffuser ces liens en dehors du réseau.
+  Espace destiné aux correspondants Éducation.
+  Merci de ne pas diffuser ces liens en dehors du réseau.
 </footer>
+
 </body>
 </html>
