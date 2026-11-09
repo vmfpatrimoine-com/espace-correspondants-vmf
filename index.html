@@ -185,13 +185,25 @@ footer {
     gap: 12px;
   }
 }
+
+/* Accès par code */
+.overlay { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(24,24,24,.94); }
+.overlay[hidden] { display: none; }
+.gate { width: 100%; max-width: 400px; background: #fff; border-radius: 8px; border-top: 5px solid var(--gold); padding: 32px 28px; text-align: center; }
+.gate h2 { font: normal 24px Georgia, serif; margin: 0 0 10px; }
+.gate p { color: #666; font-size: 14px; margin: 0 0 20px; }
+.gate input { width: 100%; padding: 13px 15px; font-size: 16px; border: 1px solid var(--line); border-radius: 4px; text-align: center; }
+.gate input:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+.gate button { margin-top: 12px; width: 100%; padding: 12px; font-size: 15px; font-weight: 600; color: var(--black); background: #fff; border: 1px solid var(--gold); border-radius: 4px; cursor: pointer; }
+.gate button:hover, .gate button:focus-visible { background: var(--gold); }
+.gate .error { color: #a12626; font-size: 14px; min-height: 22px; margin-top: 14px; }
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Espace correspondants Éducation</h1>
+  <h1>Espace correspondants éducation</h1>
   <p>
     Retrouvez les documents et ressources utiles
     pour accompagner et relayer les actions
@@ -199,7 +211,7 @@ footer {
   </p>
 </header>
 
-<main>
+<main id="app" hidden>
 
 <p class="intro">
   Sélectionnez une rubrique pour consulter
@@ -319,6 +331,39 @@ footer {
   Espace destiné aux correspondants Éducation.
   Merci de ne pas diffuser ces liens en dehors du réseau.
 </footer>
+
+
+<!-- ACCÈS PAR CODE : s'affiche au-dessus de la page tant que le bon code n'est pas saisi -->
+<div class="overlay" id="overlay">
+  <form class="gate" id="gate" autocomplete="off">
+    <h2>Accès réservé</h2>
+    <p>Espace destiné aux correspondants Éducation.<br>Saisissez le code d'accès pour continuer.</p>
+    <label for="code" style="position:absolute;left:-9999px">Code d'accès</label>
+    <input id="code" type="password" placeholder="Code d'accès" required autofocus>
+    <button type="submit">Valider</button>
+    <div class="error" id="err" role="alert" aria-live="polite"></div>
+  </form>
+</div>
+
+<script>
+// ===== CODE D'ACCÈS : pour le changer, modifiez simplement le texte entre guillemets =====
+var CODE = "CO_EDUCATION_2026";
+// ========================================================================================
+
+document.getElementById('gate').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var err = document.getElementById('err');
+  var input = document.getElementById('code');
+  err.textContent = '';
+  if (input.value.trim() === CODE) {
+    document.getElementById('overlay').hidden = true;
+    document.getElementById('app').hidden = false;
+  } else {
+    err.textContent = 'Code incorrect. Veuillez réessayer.';
+    input.select();
+  }
+});
+</script>
 
 </body>
 </html>
